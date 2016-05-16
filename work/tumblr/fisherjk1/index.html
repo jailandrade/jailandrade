@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{Title}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}"> {block:Description}
+    <meta name="description" content="{MetaDescription}" /> {/block:Description}
+    <!--  Color for Backgrounds -->
+    <meta name="color:Background Header Top" content="#1CBC3A">
+    <meta name="color:Background Header" content="#fff">
+    <meta name="color:Background Container" content="#e6e6e6">
+    <meta name="color:Background Post" content="#fff">
+    <meta name="color:Background Sidebar Content" content="#fff">
+    <meta name="color:Background Sidebar Top" content="#1CBC3A">
+    <meta name="color:Background Footer" content="#1CBC3A">
+    <!--  Color for Text-->
+    <meta name="color:Text Header Top" content="#fff">
+    <meta name="color:Text Header" content="#1CBC3A">
+    <meta name="color:Text Post Tags" content="#ccc">
+    <meta name="color:Text Post Title" content="#555">
+    <meta name="color:Text Post Content" content="#222">
+    <meta name="color:Text Post Meta" content="#1CBC3A">
+    <meta name="color:Text Sidebar Header" content="#fff">
+    <meta name="color:Text Sidebar Content" content="#666">
+    <meta name="color:Text Sidebar Links" content="#1CBC3A">
+    <meta name="color:Text Footer" content="#fff">
+    <meta name="color:Text Footer Links Page" content="#fff">
+    <!--  Color for Buttons-->
+    <meta name="color:Button Background" content="#1CBC3A">
+    <meta name="color:Button Text" content="#fff">
+    <!--  Custom Text -->
+    <meta name="text:Disclaimer" content=""/>
+    <meta name="text:Advertisement Link" content="">
+
+    <!--  Links -->
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <style>
+        html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-family:sans-serif;font-size:100%;line-height:1;vertical-align:middle;overflow:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}*,:after,:before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}a,abbr,acronym,address,article,aside,audio,b,body,caption,cite,code,dd,details,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,i,img,label,legend,li,main,mark,menu,nav,ol,output,picture,q,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,ul,var,video{margin:0;padding:0;border:0;font-family:inherit;outline:0;font-style:inherit;font-weight:inherit}body{background-color:#fff;color:#333}img,picture{max-width:100%;height:auto}b,strong{font-weight:700}a{text-decoration:none;color:#000}a:active,a:hover,a:visited{color:inherit;outline:0}a img{border:0}button,input,optgroup,select,textarea{color:inherit;font:inherit}menu,ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:none;empty-cells:hide}td,th{padding:0}
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.5;
+        }
+        .links-header {
+            padding: 5px 0 10px;
+            background-color: {color:Background Header Top};
+        }
+        .links-header a {
+            text-transform: uppercase;
+            color: {color:Text Header Top};
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            padding-right: 15px;
+        }
+        .inner-header {
+            padding: 20px 0;
+            background-color: {color:Background Header};
+            color: {color:Text Header};
+            box-shadow: 2px 2px 2px 2px #ccc;
+        }
+        .inner-header h1 {
+            text-align: center;
+        }
+        .inner-header img {
+            display: block;
+            margin: 0 auto;
+        }
+        .header-title {
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .container {
+            background-color: {color:Background Container};
+        }
+        .content {
+            width: 86%;
+            margin: 0 auto;
+        }
+        .posts,
+        .sidebar {
+            display: inline-block;
+            vertical-align: top;
+            white-space: none;
+        }
+        .container .content {
+            padding-top: 40px;
+        }
+        .posts {
+            width: 55%;
+        }
+        .post{
+            background-color: {color:Background Post};
+            box-shadow: 2px 3px 2px 2px #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .post-title {
+            color: {color:Text Post Title};
+            font-size: 30px;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .post-content {
+            color: {color:Text Post Content};
+            font-size: 16px;
+        }
+        .post-footer {
+            color: {color:Text Post Meta};
+            font-size: 13px;
+        }
+        .post-footer .notes,
+        .post-footer .date {
+            color: {color:Text Post Tags}
+        }
+        .post-footer .date,
+        .post-footer .notes,
+        .post-footer .tags {
+            display: inline-block;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+        .like_and_reblog_buttons {
+            border-radius: 3px;
+            list-style: none;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .like_and_reblog_buttons li {
+            float: left;
+            margin: 0;
+            padding: 1px 15px;
+            height: 20px;
+        }
+        .link_and_reblog_buttons a {
+            width: 16px;
+            height: 16px;
+        }
+
+        .post-tags {
+            color: {color:Text Post Tas};
+        }
+        .sidebar{
+            width: 35%;
+            margin-left: 5%;
+        }
+        .sidebar .section {
+            margin-bottom: 30px;
+            box-shadow: 2px 3px 2px 2px #ccc;
+        }
+        .sidebar-header {
+            background-color: {color:Background Sidebar Top};
+            padding: 5px 10px;
+            color: {color:Text Sidebar Header};
+        }
+        .sidebar-content {
+            background-color: {color:Background Sidebar Content};
+            color: {color:Text Sidebar Content};
+            padding: 20px;
+        }
+        .sidebar-links a {
+            color: {color:Text Sidebar Links};
+        }
+        .sidebar .advertisement img{
+            max-width: 100%;
+        }
+        .pagination {
+            width: 420px;
+            margin: 0 auto;
+        }
+        .footer {
+            background-color: {color:Background Footer};
+            color: {color:Text Footer};
+            padding: 25px 0;
+        }
+        .footer .links-page,
+        .footer .disclaimer {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .footer .links-page {
+            width: 200px;
+        }
+        .footer .disclaimer {
+            width: 500px;
+        }
+        .footer .links-page a {
+            display: block;
+            color: {color:Text Footer Links Page};
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px){
+            .content {
+                width: 96%;
+            }
+            .posts,
+            .sidebar {
+                width: 100%;
+                display: block;
+                vertical-align: top;
+            }
+            .sidebar {
+                margin-left: 0;
+            }
+            .footer .links-page,
+            .footer .disclaimer {
+                display: block;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <!-- Rollup Links Header -->
+        <div class="links-header">
+            {block:HasPages}
+            <div class="content">
+                {block:Pages}
+                    <a href="{URL}">{Label}</a>
+                {/block:Pages}
+            </div>
+            {/block:HasPages}
+        </div>
+        <!-- Main Header -->
+        <div class="inner-header">
+            <h1 class="header-title">{Title}</h1>
+            <img src="" alt="">
+        </div>
+    </header>
+    <main class="container">
+        <section class="content">
+            <div class="posts">{block:Posts}
+                {block:Text}
+                <div class="post text">
+                    {block:Title}
+                    <div>
+                        <h3 class="post-title"><a href="{Permalink}">{Title}</a></h3>
+                    </div>
+                    {/block:Title}
+                    <div class="post-content">
+                        {Body}
+                        {block:More}{/block:More}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Text}
+                {block:Photo}
+                <div class="post photo">
+                    <div class="post-content">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
+                        {block:Caption}
+                        <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Photo}
+                {block:Panorama}
+                <div class="post panorama">
+                    <div class="post-content">
+                        {LinkOpenTag}
+                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
+                        {LinkCloseTag}
+                        {block:Caption}
+                        <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Panorama}
+                {block:Photoset}
+                <div class="post photoset">
+                    <div class="post-content">
+                        {Photoset-500}
+                        {block:Caption}
+                        <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Photoset}
+                {block:Quote}
+                <div class="post quote">
+                    <div class="post-content">
+                        "{Quote}"
+                        {block:Source}
+                        <div class="source">{Source}</div>
+                        {/block:Source}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Quote}
+                {block:Link}
+                <div class="post link">
+                    <div class="post-content">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+                        {block:Description}
+                        <div class="description">{Description}</div>
+                        {/block:Description}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Link}
+                {block:Chat}
+                <div class="post chat">
+                    <div class="post-title">
+                        {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                    </div>
+                    <div class="post-content">
+                        <ul class="chat">
+                            {block:Lines}
+                            <li class="{Alt} user_{UserNumber}">
+                                {block:Label}
+                                <span class="label">{Label}</span>
+                                {/block:Label}
+                                {Line}
+                            </li>
+                            {/block:Lines}
+                        </ul>
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                {/block:Chat}
+                {block:Video}
+                <div class="post video">
+                    <div class="post-content">
+                        {Video-500}{block:Caption}
+                        <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Video}
+                {block:Audio}
+                <div class="post audio">
+                    <div class="post-content">
+                        {AudioEmbed}{block:Caption}
+                        <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    <div class="post-footer">
+                        {block:Date}
+                        <div class="date">
+                            {block:SameDayDate}
+                                <span>{DayOfMonth} {Month} {Year}</span>
+                            {/block:SameDayDate}
+                        </div>
+                        {/block:Date}
+                        {block:HasTags}
+                        {block:Tags}
+                        <div class="tags">
+                            <span><a href="{TagURL}">#{Tag}</a></span>
+                        </div>
+                        {/block:Tags}
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes">
+                            {block:NoteCount}
+                                <span>{NoteCount}</span>
+                            {/block:NoteCount}
+                        </div>)
+                        {/block:PostNotes}
+                        <ul class="like_and_reblog_buttons">
+                            <li>{ReblogButton}</li>
+                            <li>{LikeButton}</li>
+                        </ul>
+                    </div>
+                </div>
+                {/block:Audio}
+            {/block:Posts}
+            </div>
+            <sidebar class="sidebar">
+                <section class="section about">
+                    <header class="sidebar-header">
+                        <h3>About this blog</h3>
+                    </header>
+                    <div class="sidebar-content">
+                        {block:Description}
+                            <p id="description">{Description}</p>
+                        {/block:Description}
+                    </div>
+                </section>
+                <section class="section advertisement">
+                    <header class="sidebar-header">
+                        <h3>Advertisement</h3>
+                    </header>
+                    <div class="sidebar-content">
+                        <img src="{text:Advertisement Link}" alt="">
+                    </div>
+                </section>
+                <section class="section recent-posts">
+                    <header class="sidebar-header">
+                        <h3>Recent Posts</h3>
+                    </header>
+                    <div class="sidebar-content">
+                        <div id="recent-posts" class="sidebar-links">
+                            {block:Posts}
+                              {block:Post1}
+                                    {block:Text}<a href="{Permalink}">{Title}</a>{/block:Text}
+                                    {block:Photo}<a href="{Permalink}">{Caption}</a>{/block:Photo}
+                                    {block:Panorama}<a href="{Permalink}">{Caption}</a>{/block:Panorama}
+                                    {block:Photoset}<a href="{Permalink}">{Caption}</a>{/block:Photoset}
+                                    {block:Quote}<a href="{Permalink}">{Quote}</a>{/block:Quote}
+                                    {block:Link}<a href="{Permalink}">{Name}</a>{/block:Link}
+                                    {block:Chat}<a href="{Permalink}">{Title}</a>{/block:Chat}
+                                    {block:Audio}<a href="{Permalink}">{Caption}</a>{/block:Audio}
+                                    {block:Video}<a href="{Permalink}">{Caption}</a>{/block:Video}
+                                    {block:Answer}<a href="{Permalink}">{Question}</a>{/block:Answer}
+                              {block:Post1}
+                        {/block:Posts}
+                        </div>
+                    </div>
+                </section>
+            </sidebar>
+        </section>
+    </main>
+    <div class="pagination">
+        {block:Pagination}
+            {block:PreviousPage}
+            <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}
+            {block:NextPage}
+            <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+        {/block:Pagination}
+    </div>
+    <footer class="footer">
+        <div class="content">
+            <div class="links-page">
+                {block:HasPages}
+                    {block:Pages}
+                        <a href="{URL}">{Label}</a>
+                    {/block:Pages}
+                        <a href="{RSS}">RSS</a>
+                        <a href="/archive">Archive</a>
+                {/block:HasPages}
+            </div>
+            {block:IfDisclaimer}
+            <div class="disclaimer">
+                {text:Disclaimer}
+            </div>
+            {block:IfDisclaimer}
+        </div>
+    </footer>
+</body>
+</html>

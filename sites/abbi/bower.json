@@ -1,0 +1,17 @@
+{
+  "name": "abbi",
+  "authors": [
+    "Mikhail Cruz Andrade <jailandrade@gmail.com>"
+  ],
+  "description": "site web template",
+  "main": "index.html",
+  "keywords": [
+    "web",
+    "site",
+    "responsive",
+    "modern"
+  ],
+  "license": "MIT",
+  "homepage": "http://sandialand.in/templates/abbi",
+  "private": true
+}

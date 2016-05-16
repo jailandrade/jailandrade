@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <script>
+    function derDieDas(wort){
+        // Lowercase the word
+        var word = wort.toLowerCase();
+        var vowels = 0,
+            umlaute = 0;
+            vu = 0;
+
+        // Compare the vowels
+        for (var i = 0; i < word.length; i++) {
+            if ( (word.charAt(i) === 'a') || (word.charAt(i) === 'e') || (word.charAt(i) === 'i') || (word.charAt(i) === 'o') || (word.charAt(i) === 'u') ) {
+                vowels++;
+            }
+
+            if ( (word.charAt(i) === 'ä') || (word.charAt(i) === 'ö') || (word.charAt(i) === 'ü') ) {
+                umlaute++;
+            }
+        }
+
+        vu = vowels + umlaute;
+
+        if (vu < 2) {
+            return "das " + wort;
+        }
+        if (vu == 2 || vu == 3) {
+            return "die " + wort;
+        }
+        if (vu > 3 ) {
+            return "der " + wort;
+        }
+    }
+
+    function derDieDas(wort){
+        // Lowercase the word
+        var word = wort.toLowerCase();
+        var vowels_umlaute = 0;
+        // Compare the vowels character for character
+        for (var i = 0; i < word.length; i++) {
+            if ( (word.charAt(i) === 'a') || (word.charAt(i) === 'e') || (word.charAt(i) === 'i') || (word.charAt(i) === 'o') || (word.charAt(i) === 'u') || (word.charAt(i) === 'ä') || (word.charAt(i) === 'ö') || (word.charAt(i) === 'ü') ) {
+                vowels_umlaute++;
+            }
+        }w
+
+        // Count the vowels and umlaute to return the message
+        if (vowels_umlaute < 2) {
+            return "das " + wort;
+        }
+        if (vowels_umlaute == 2 || vowels_umlaute == 3) {
+            return "die " + wort;
+        }
+        if (vowels_umlaute > 3 ) {
+            return "der " + wort;
+        }
+    }
+
+    console.log(derDieDas('Jürgen'));
+    console.log(derDieDas('Auto'));
+    console.log(derDieDas('Lappen'));
+    console.log(derDieDas('Donau-Dampfschifffahrtsgesellschaft'));
+    console.log(derDieDas('Ei'));
+    console.log(derDieDas('Hut'));
+    </script>
+</body>
+</html>

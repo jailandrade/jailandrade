@@ -1,0 +1,158 @@
+/**
+ * File with a list of utils that I always use in my designs
+ * @package: Start
+ *
+ */
+/* About the boxes */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sans-serif, serif;
+  font-size: 100%;
+  line-height: 1;
+  vertical-align: middle;
+  overflow: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+body,
+div,
+span,
+article,
+aside,
+figure,
+footer,
+header,
+main,
+hgroup,
+menu,
+nav,
+picture,
+section,
+summary,
+form,
+table,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+abbr,
+acronym,
+address,
+cite,
+code,
+em,
+img,
+q,
+small,
+strong,
+sup,
+sub,
+tt,
+var,
+optgroup,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+label,
+legend,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+textarea,
+select,
+details,
+figcaption,
+output,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  outline: 0;
+  font-style: inherit;
+  font-weight: inherit;
+}
+body {
+  background-color: #fff;
+  color: #333;
+}
+/* About images */
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+}
+/* About fonts */
+b,
+strong {
+  font-weight: bold;
+}
+i,
+em {
+  font-style: italic;
+}
+/* About the links */
+a {
+  text-decoration: none;
+  color: #555;
+}
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  outline: 0;
+}
+a img,
+p img {
+  border: 0;
+}
+/* About forms */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+/* About lists */
+ul,
+ol,
+menu {
+  list-style: none;
+}
+/* About tables */
+table {
+  border-collapse: collapse;
+  border-spacing: none;
+  empty-cells: hide;
+}
+td,
+th {
+  padding: 0;
+}

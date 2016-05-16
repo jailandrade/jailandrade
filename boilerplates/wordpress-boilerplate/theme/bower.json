@@ -1,0 +1,26 @@
+{
+  "name": "theme",
+  "homepage": "https://github.com/jailandrade/wordpress-boilerplate",
+  "authors": [
+    "Mikhail Cruz Andrade <jailandrade@gmail.com>"
+  ],
+  "description": "wordpress theme boilerplate",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "wordpress",
+    "theme",
+    "css",
+    "js"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ]
+}

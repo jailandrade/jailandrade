@@ -1,0 +1,626 @@
+/*
+Theme Name: jailandrade
+Theme URI: http://jailandrade.me/templates/jailandrade
+Author: Mikhail Cruz Andrade
+Author URI: http://jailandrade.me
+Description: My theme wordpress
+Version: 1.0
+License: MIT License
+Tags: clean, white, black, one column
+This is a boilerplate you have to fill with your own code
+*/
+
+/* https://github.com/jailandrade/go */
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1;
+    vertical-align: middle;
+    overflow: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+*,
+:after,
+:before {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit
+}
+
+a,abbr,acronym,
+address,article,aside,
+blockquote,body,caption,cite,
+code,dd,details,div,dl,dt,
+em,fieldset,figcaption,
+figure,footer,form,h1,
+h2,h3,h4,h5,h6,header,
+hgroup,img,label,legend,
+li,main,mark,menu,nav,ol,
+output,picture,q,section,
+small,span,strong,sub,summary,
+sup,table,tbody,td,tfoot,
+th,thead,time,tr,tt,ul,
+var,video{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    outline: 0;
+    font-style: inherit;
+    font-weight: inherit
+}
+body {
+    background-color: #fff;
+    color: #333
+}
+img,
+picture {
+    max-width: 100%;
+    height: auto
+}
+b,
+strong {
+    font-weight: 700
+}
+a {
+    text-decoration: none;
+    color: #000
+}
+a:active,
+a:hover,
+a:visited {
+    color: inherit;
+    outline: 0
+}
+a img {
+    border: 0
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit
+}
+menu,
+ol,
+ul {
+    list-style: none
+}
+
+li {
+  line-height: 1.4;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: none;
+    empty-cells: hide
+}
+td,
+th {
+    padding: 0
+}
+
+
+/* The stylesheet starts here */
+
+/*
+  1. Utitilies
+  2. Grids and columns
+  3. Header
+  4. Nav
+  5. Landscape
+  6. Index
+  7. Pages
+  8. Blog
+  9. Portfolio
+  10. Contacto
+  11. Footer
+  12. Footer Blog
+  13. Newsletter
+  14. Copyright and icons
+
+
+ */
+
+
+
+/* About the utilities */
+
+::-moz-selection {
+  color: #fff;
+  background-color: #4DA3F4;
+}
+::selection {
+  color: #fff;
+  background-color: #4da3f4;
+}
+
+
+.button {
+  font-size: 1.2rem;
+  padding: 5px 20px;
+  font-weight: bold;
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+}
+
+.button.button-blue {
+  border: 2px solid #4DA3F4;
+  color: #4DA3F4;
+}
+  .button.button-blue:hover {
+    background-color: #4DA3F4;
+    color: #fff;
+  }
+
+.button.button-white {
+  border: 2px solid #fff;
+  color: #fff;
+}
+  .button.button-white:hover {
+    background-color: #fff;
+    color: #4DA3F4;
+  }
+
+
+.u-ib {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* About the grids and the columns */
+.site {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1.4;
+}
+
+
+.section-content {
+  width: 83.5%;
+  margin: 0 auto;
+  font-size: 0px;
+}
+
+/* About the header */
+
+.site-heading,
+.site-nav {
+  width: 50%;
+}
+
+.site-title {
+  font-family: 'Niconne', cursive;
+  font-size: 2rem;
+  color: #4DA3F4;
+}
+
+/* About the nav */
+
+.site-nav {
+  position: absolute;
+  right: 0;
+}
+
+.site-nav li{
+  padding: 1em;
+  display: inline-block;
+  margin-right: 2em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.site-nav li:last-child {
+  margin-right: 0;
+}
+
+.site-nav a {
+  color: #4DA3F4;
+}
+.site-nav li:hover {
+  background-color: #4DA3F4;
+}
+.site-nav li:hover a {
+  color: #fff;
+}
+
+/* About the landscapes */
+
+.section-landscape {
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.page-home .section-landscape {
+  background: url('img/bg_home.jpg') no-repeat scroll;
+  padding: 200px 0 140px;
+}
+.page-about .section-landscape {
+  background: url('img/bg_home.jpg') no-repeat scroll;
+}
+.single .section-landscape,
+.page-blog .section-landscape,
+.single-page .section-landscape {
+  background: url('img/bg_blog.jpg') no-repeat scroll;
+}
+.page-portfolio .section-landscape {
+  background: url('img/bg_portfolio.jpg') no-repeat scroll;
+}
+.page-contact .section-landscape {
+  background: url('img/bg_contact.jpg') no-repeat scroll;
+}
+
+.landscape__title {
+  font-size: 3.2rem;
+  text-shadow: 3px 1px 5px #111;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.landscape__description {
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 4px #444;
+}
+
+
+/* About the sections in the index*/
+
+
+.section-commitment .section-content,
+.section-foundation .section-content,
+.section-process .section-content {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.section-commitment,
+.section-foundation,
+.section-process {
+  padding: 50px 0 60px;
+}
+
+.section-commitment,
+.section-foundation,
+.section-newsletter {
+  background-color: #F2F6F7;
+  color: #4DA3F4;
+}
+
+.section-process {
+  background-color: #4DA3F4;
+  color: #fff;
+}
+
+.section-content__title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.section-content__tagline {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 30px
+}
+
+.section-content__commitment {
+  font-size: 0;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-content__commitment .img-container {
+  width: 40%;
+}
+.section-content__commitment .text-container {
+  width: 60%;
+}
+
+.section-content__commitment .text-container {
+  font-size: 1rem;
+  text-align: left;
+  vertical-align: middle !important;
+  padding-top: 15px;
+}
+
+.section-content__commitment h3 {
+  font-size: 1.2rem;
+  color: #2D74B7;
+  font-weight: bold;
+}
+
+.section-content__commitment p {
+  font-size: 0.85rem;
+  color: #7C7C7C;
+}
+
+.section-content__commitment img,
+.section-content__foundation img,
+.section-content__process img {
+  display: block;
+  margin: 0 auto;
+}
+
+.section-content__process:nth-child(3),
+.section-content__process:nth-child(6),
+.section-content__process:nth-child(9){
+  width: 100%;
+}
+
+.section-content__process:nth-child(4),
+.section-content__process:nth-child(5),
+.section-content__process:nth-child(7),
+.section-content__process:nth-child(8){
+  width: 50%;
+}
+
+
+.section-content__foundation {
+  width: 33%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.section-content__foundation h3 {
+  color: #4DA3F4;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.section-content__foundation-text{
+  font-size: 1rem;
+  color: #7C7C7C;
+  text-align: center;
+}
+
+/* About the pages */
+
+.article,
+.single-post .post {
+  padding: 25px 0;
+}
+
+.article-title {
+  color: #4DA3F4;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.article-content {
+  color: #868686;
+  text-align: center;
+  padding: 25px 0;
+  line-height: 1.6;
+  font-size: 1.2rem;
+}
+
+/* About the page for blog */
+
+.section-blog .post {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.section-blog .post-meta,
+.section-single .post-meta {
+  color: #868686;
+  font-size: 1rem;
+}
+
+.section-blog .post-title,
+.section-single .post-title{
+  color: #4DA3F4;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.section-blog .post-content,
+.section-single .post-content {
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+
+.section-blog .post-content li,
+.section-single .post-content li{
+  margin: 5px 0;
+  line-height: 1.65;
+}
+
+
+/* About the page for Portfolio */
+
+.section-portfolio {
+  padding-bottom: 50px;
+}
+
+.portfolio-element {
+  width: 33%;
+  position: relative;
+}
+
+.portfolio-element__img {
+  width: 100%;
+  padding: 5px;
+}
+
+.portfolio-element:hover {
+  background-color: #4da3f4;
+  z-index: 100;
+}
+
+.portfolio-element__img:hover {
+  opacity: 0.3;
+}
+
+.portfolio-element__link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff !important;
+  z-index: 200;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* About the contact page */
+
+.ninja-form-container {
+  font-size: 1rem;
+  width: 60%;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.ninja-forms-field {
+  color: #333;
+  border: 2px solid #4da3f4;
+  padding: 10px 5px;
+}
+
+.ninja-form-container input[type="submit"] {
+  background-color: #4da3f4;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.section-social-networks {
+  margin-top: 40px;
+}
+
+.section-social-networks-icons {
+  width: 350px;
+  margin: 25px auto;
+}
+
+.section-social-networks-text {
+  font-size: 1.1rem;
+  color: #4da3f4;
+  text-align: center;
+}
+
+.section-social-networks a {
+  margin-right: 10px;
+}
+
+.section-social-networks a:last-child {
+  margin-right: 0;
+}
+/* About the footer  */
+
+
+/* About the blog */
+
+.section-blog-home {
+  padding: 125px 0;
+  background: url('img/bg_blog_home.jpg') no-repeat scroll;
+  color: #fff;
+  text-align: center;
+}
+
+.section-blog-home .post-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-blog-home .post-title a {
+  color: #fff;
+}
+
+.section-blog-home .post-excerpt {
+  font-size: 1.2rem;
+}
+
+.button-blog:hover {
+  background-color: #fff;
+  color: #4DA3F4;
+}
+
+
+/* About the newsletter*/
+
+.section-newsletter {
+  background-color: #F2F6F7;
+  font-size: 0;
+  padding: 60px 0;
+}
+
+
+.section-newsletter fieldset{
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  padding: 5px;
+}
+
+.section-newsletter input {
+  padding: 5px;
+  border: 2px solid #4DA3F4;
+}
+
+.section-newsletter input[type="submit"] {
+  border: none;
+  width: 100%;
+  background: #4DA3F4;
+  color: #fff;
+}
+
+
+/* About the social icons */
+
+.section-social {
+  background-color: #202D38;
+  padding: 30px 0;
+
+}
+
+.quote {
+  font-size: 1.2rem;
+  text-align: left;
+  color: #fff;
+  font-family: 'Niconne', cursive;
+}
+
+.icons {
+  position: absolute;
+  right: 20px;
+}
+
+.section-copyright {
+  background-color: #0F161D;
+  padding: 15px 0;
+  color: #738286;
+  text-align: center;
+}
+
+/* Iconos */
+
+.icon {
+  padding-right: 20px;
+}
+
+
+@media()

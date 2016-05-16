@@ -1,0 +1,1 @@
+Muchas gracias a las personas que abajo cito por compartir conmigo lo que saben y hacer que estas notas sean mejor para quien la estudia.

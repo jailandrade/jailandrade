@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>{Title}</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+      <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+      <link rel="shortcut icon" href="{Favicon}">
+      <link rel="alternate" type="application/rss+xml" href="{RSS}">
+      {block:Description}
+      <meta name="description" content="{MetaDescription}" />
+      {/block:Description}
+      <style>
+        /* Reset the style */
+        html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-family:sans-serif;font-size:100%;line-height:1;vertical-align:middle;overflow:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}*,:after,:before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}a,abbr,acronym,address,article,aside,audio,b,body,caption,cite,code,dd,details,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,i,img,label,legend,li,main,mark,menu,nav,ol,output,picture,q,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,ul,var,video{margin:0;padding:0;border:0;font-family:inherit;outline:0;font-style:inherit;font-weight:inherit}body{background-color:#fff;color:#333}img,picture{max-width:100%;height:auto}b,strong{font-weight:700}a{text-decoration:none;color:#000}a:active,a:hover,a:visited{color:inherit;outline:0}a img{border:0}button,input,optgroup,select,textarea{color:inherit;font:inherit}menu,ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:none;empty-cells:hide}td,th{padding:0}
+        /* Body, page and sections */
+        .p {} /* .page */
+        .p-header {padding: 25px 0; } /* .page-header */
+        .p-footer {width: 50%; margin: 0 auto;} /*.page-footer*/
+        .p-content {} /**/
+        .s-header {} /**/
+        .s-footer {} /**/
+        .s-content {} /**/
+        body {font-family: 'Lato', sans-serif; line-height: 1.4} /**/
+        /* Grids and columns */
+        .grid {width: 86% ;margin: 0 auto; font-weight: 400; font-size: 0;} /**/
+        .col {display: block; width: 50%; margin: 50px auto; } /**/
+        /* Typography*/
+        .t-bold {font-weight: 700;} /**/
+        .t-lighter {font-weight: 300;} /**/
+        .t-center {text-align: center;} /**/
+        .t-bigger {font-size: 3rem;} /**/
+        .t-smaller {font-size: 1rem;} /**/
+        .t-medium {font-size: 2rem;} /**/
+        .t-small {font-size: 1.5rem;} /**/
+        .t-big {font-size: 2.5rem;} /**/
+        /* Colors */
+        .mellon {color: #f8b195;} .mellon-bg {background-color: #f8b195;}
+        .cherry {color: #f67280;} .cerry-bg {background-color: #f67280;}
+        .magent {color: #c06c84;} .magent-bg {background-color: #c06c84;}
+        .purple {color: #6c5b7b;} .purple-bg {background-color: #6c5b7b;}
+        .blue {color: #355c7d;} .blue-bg {background-color: #355c7d;}
+        /* Images */
+        /* Links */
+        /* Tumblr rules*/
+        .post {padding: 20px; background-color: #fff; box-shadow: 3px 3px 2px #ddd; border-top: 0.5px solid #ddd; border-left: 0.5px solid #ddd;}
+        /* Navigation */
+        .navigation {font-size: 0;}
+        .nav-pages {width: 50%;display: inline-block;vertical-align: top;padding: 25px 0;text-align: center;}
+        .nav-pages:hover {background-color: #ddd; color: #fff; }
+        /* RWD */
+        @media (max-width: 520px) {
+        }
+      </style>
+  </head>
+  <body>
+    <div class="p">
+      <div class="grid">
+        <header class="p-header">
+          <h1 class="t-bold, t-bigger t-center">{Title}</h1>
+          {block:Description}
+              <p class="t-center t-small" id="description">{Description}</p>
+          {/block:Description}
+        </header>
+        <div id="posts">
+        {block:Posts}
+
+          {block:Text}
+          <div class="post text col">
+            {block:Title}<h3 class="t-small"><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+            {Body}
+          </div>
+          {/block:Text}
+
+          {block:Photo}
+          <div class="post photo col">
+            <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+            {block:Caption}<div class="caption t-small">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Photo}
+
+          {block:Panorama}
+          <div class="post panorama col">
+            {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}
+            {block:Caption}<div class="caption t-small">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Panorama}
+
+          {block:Photoset}
+          <div class="post photoset col">
+            {Photoset-500}
+            {block:Caption><div class="caption t-small">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Photoset}
+
+          {block:Quote}
+          <div class="post quote col t-small">
+            "{Quote}"
+            {block:Source}<div class="source t-smaller">{Source}</div>{/block:Source}
+          </div>
+          {/block:Quote}
+
+          {block:Link}
+          <div class="post link col">
+            <a href="{URL}" class="link t-small" {Target}>{Name}</a>
+            {block:Description}<div class="description t-small">{Description}</div>{/block:Description}
+          </div>
+          {/block:Link}
+
+          {block:Chat}
+          <div class="post chat col">
+            {block:Title}<h3 class="t-small"><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+            <div class="chat">
+            {block:Lines}
+              <div class="{Alt} user_{UserNumber} t-small">
+                {block:Label}<span class="label t-small">{Label}</span>{/block:Label}
+                {Line}
+              </div>
+            {/block:Lines}
+            </div>
+          </div>
+          {/block:Chat}
+
+          {block:Video}
+          <div class="post video col">
+            {Video-500}
+            {block:Caption}<div class="caption t-small">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Video}
+
+          {block:Audio}
+          <div class="post audio col">
+            {AudioEmbed}
+            {block:Caption}<div class="caption t-small">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Audio}
+
+        {/block:Posts}
+        </div>
+
+        <div class="p-footer">
+          <div class="navigation">
+          {block:Pagination}
+            {block:PreviousPage}<a href="{PreviousPage}" class="nav-pages t-medium">&#171; Previous</a>{/block:PreviousPage}
+            {block:NextPage}<a href="{NextPage}" class="nav-pages t-medium">Next &#187;</a>{/block:NextPage}
+          {/block:Pagination}
+          </div>
+        </div>
+      </div> <!-- .grid -->
+    </div> <!-- .page -->
+  </body>
+</html>

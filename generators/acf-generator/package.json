@@ -1,0 +1,19 @@
+{
+  "name": "acf-generator",
+  "version": "0.0.1",
+  "description": "A generator of files for acf-generator",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "acf",
+    "wordpress",
+    "generator"
+  ],
+  "preferGlobal": true,
+  "bin": {
+    "acf-generator": "index.js"  
+  },
+  "author": "Mikhail Cruz Andrade",
+  "license": "ISC"
+}
