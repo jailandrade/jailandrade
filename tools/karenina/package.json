@@ -1,0 +1,14 @@
+{
+  "name": "karenina",
+  "version": "0.0.1",
+  "description": "a tool to generate tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tools"
+  ],
+  "author": "Mikhail Cruz Andrade",
+  "license": "ISC"
+}
