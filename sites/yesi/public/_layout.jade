@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title #{title}
+  body
+    .page
+      header.header
+        nav.nav
+          ul
+            li
+              a(href='/') Index
+            li
+              a(href='/about') About
+            li
+              a(href='/contact') Contact
+      main.main
+        .container
+          != yield
+      footer.footer
+        p All rights reserved
