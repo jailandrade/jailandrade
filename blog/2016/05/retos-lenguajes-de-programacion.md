@@ -16,6 +16,13 @@ Estos son los lenguajes que quiero dominar de aqui a finales de año:
 12. Kotlin
 13. Swift
 
+Le voy a añadir cuatro mas
+
+14. Typescript
+15. Scala
+16. Clojure
+17. C#
+
 Y hare 30 proyectos de aqui a fin de año para dominarlos. Pero primero quiero practicar las bases, los fundamentos y paradigmas de cada lengaje para reforzar.
 
 Estos son los ejercicios que quiero practicar.
