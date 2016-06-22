@@ -8,12 +8,12 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
     //- Place favicon.ico in the root directory
-    link(href='https://fonts.googleapis.com/css?family=Oswald:400,300', rel='stylesheet' type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Indie+Flower', rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='/styles/font-awesome.min.css')
     link(rel='stylesheet', href='/styles/normalize.css')
     link(rel='stylesheet', href='/styles/skeleton.css')
     link(rel='stylesheet', href='/styles/sandia.css')
+    link(href='https://fonts.googleapis.com/css?family=Oswald:400,300', rel='stylesheet' type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Indie+Flower', rel='stylesheet' type='text/css')
     script(src='/js/vendor/modernizr-2.8.3.min.js')
   body
     .page
@@ -36,38 +36,41 @@ html(lang='en')
         main.main
           != yield
         footer.footer
-          div.footer-inner
-            div.container
-              div.row
-                div.col-4.newsletter
-                  h3.subtitle Newsletter
-                  p Mantente informado de nuestros ultimos diseños y productos
-                  form(action='')
-                    input(type='text' name='name' placeholder='Nombre')
-                    input(type='text' name='email' placeholder='Email')
-                    input(type='submit')
-                div.col-4.contact
-                  h3.subtitle Contact
-                  p You can write us at
-                  p
-                    a(href='mailto:hola@sandialand.in') hola@sandialand.in
-                div.col-4.follow
-                  h3.subtitle Follow us
-                  ul
-                    li
-                      a(href='https://facebook.com/sandialand')
-                        i.fa.fa-facebook-official(aria-hidden='true')
-                    li
-                      a(href='https://twitter.com/sandialand')
-                        i.fa.fa-twitter(aria-hidden='true')
-                    li
-                      a(href='https://behance.net/sandialand')
-                        i.fa.fa-behance(aria-hidden='true')
-
-                div.col-4.copyright
-                  h3.subtitle Copyright
-                  p &copy; 2014 - 2016
-                  p Sandia Land
+          .footer-inner
+            .container
+              .row
+                .three.columns
+                  .newsletter
+                    h3.subtitle Newsletter
+                    p Mantente informado de nuestros ultimos diseños y productos
+                    form(action='')
+                      input(type='text' name='name' placeholder='Nombre')
+                      input(type='text' name='email' placeholder='Email')
+                      input(type='submit')
+                .three.columns
+                  .contact
+                    h3.subtitle Contact
+                    p You can write us at
+                    p
+                      a(href='mailto:hola@sandialand.in') hola@sandialand.in
+                .three.columns
+                  .follow
+                    h3.subtitle Follow us
+                    ul
+                      li
+                        a(href='https://facebook.com/sandialand')
+                          i.fa.fa-facebook-official(aria-hidden='true')
+                      li
+                        a(href='https://twitter.com/sandialand')
+                          i.fa.fa-twitter(aria-hidden='true')
+                      li
+                        a(href='https://behance.net/sandialand')
+                          i.fa.fa-behance(aria-hidden='true')
+                .three.columns
+                  .copyright
+                    h3.subtitle Copyright
+                    p &copy; 2014 - 2016
+                    p Sandia Land
 
         script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
         script.
