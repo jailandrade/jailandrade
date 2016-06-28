@@ -8,30 +8,30 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='apple-touch-icon', href='apple-touch-icon.png')
     //- Place favicon.ico in the root directory
-    link(rel='stylesheet', href='/styles/font-awesome.min.css')
     link(rel='stylesheet', href='/styles/normalize.css')
     link(rel='stylesheet', href='/styles/skeleton.css')
     link(rel='stylesheet', href='/styles/sandia.css')
     link(href='https://fonts.googleapis.com/css?family=Oswald:400,300', rel='stylesheet' type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Indie+Flower', rel='stylesheet' type='text/css')
+    link(rel='stylesheet', href='/styles/font-awesome.min.css')
     script(src='/js/vendor/modernizr-2.8.3.min.js')
   body
     .page
       header.header
         nav.nav
-          p.nav-title Navegación
+          p.nav-title Nav
           menu.nav-content
             .container
-              li
+              li.nav-item
                 a(href='/about_us') About us
-              li
+              li.nav-item
                 a(href='/services') Services
-              li
+              li.nav-item
                 a(href='/')
                   img.logo(src='/img/sandialogo.png' alt='')
-              li
+              li.nav-item
                 a(href='/portfolio') Portfolio
-              li
+              li.nav-item
                 a(href='/blog') Blog
         main.main
           != yield
@@ -56,14 +56,14 @@ html(lang='en')
                 .three.columns
                   .follow
                     h3.subtitle Follow us
-                    ul
-                      li
+                    ul.nav-social
+                      li.nav-social__item
                         a(href='https://facebook.com/sandialand')
                           i.fa.fa-facebook-official(aria-hidden='true')
-                      li
+                      li.nav-social__item
                         a(href='https://twitter.com/sandialand')
                           i.fa.fa-twitter(aria-hidden='true')
-                      li
+                      li.nav-social__item
                         a(href='https://behance.net/sandialand')
                           i.fa.fa-behance(aria-hidden='true')
                 .three.columns
