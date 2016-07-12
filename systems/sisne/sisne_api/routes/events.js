@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	var event = new Event(req.body);
 	event.created_at = Date.now();
-	
+
 	event.save(function(err) {
 		if (err) {
 			console.log(err);
@@ -35,7 +35,9 @@ router.post('/', function(req, res, next) {
 
 /* Get a event by key */
 router.get('/:event_key', function(req, res, next) {
-	Event.findOne({key: req.params.event_key}, function(err, event) {
+	Event.findOne({
+		key: req.params.event_key
+	}, function(err, event) {
 		if (err) {
 			console.log(err);
 			res.send(err);
@@ -45,13 +47,17 @@ router.get('/:event_key', function(req, res, next) {
 });
 
 router.put('/:event_key', function(req, res, next) {
-	
+
 	var event_update = req.body;
 	event_update.updated_at = Date.now();
 	console.log(event_update);
 
-	Event.findOneAndUpdate({key: req.params.event_key}, {
-		$set: {event_update}
+	Event.findOneAndUpdate({
+		key: req.params.event_key
+	}, {
+		$set: {
+			event_update
+		}
 	}, function(err, update) {
 		if (err) {
 			console.log(err);

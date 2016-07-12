@@ -24,7 +24,10 @@ var UserSchema = new Schema({
 		type: String,
 		default: ''
 	},
-	notifications: [{email: false, in_app: false}],
+	notifications: [{
+		email: false,
+		in_app: false
+	}],
 	isAdmin: {
 		type: Boolean,
 		default: false

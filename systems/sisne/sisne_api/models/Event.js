@@ -56,7 +56,10 @@ var EventSchema = new Schema({
 	},
 	tags : {
 		type: Array
-	}
+	},
+	geometry: {
+		coordinates: {type: [number], index: '2dsphere' } 
+	} 
 });
 
 module.exports = mongoose.model('Event', EventSchema);
