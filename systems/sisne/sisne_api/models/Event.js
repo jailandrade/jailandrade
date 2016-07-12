@@ -1,20 +1,62 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
+	shortid = require('shortid'),
 	ObjectId = Schema.ObjectId;
 
 var EventSchema = new Schema({
 	id: ObjectId,
-	name: String,
-	date: Date,
-	date_creation: { type: Date},
-	place: String,
-	duration: Number,
-	description: String,
-	category: String,
-	admission: String,
-	capacity: Number,
-	reservation: Boolean,
-	price: Number
+	key: {
+		type: String,
+		default: shortid.generate
+	},
+	name: {
+		type: String,
+		default: ''
+	},
+	created_at: {
+		type: Date
+	},
+	updated_at: {
+		type: Date
+	},
+	date: {
+		type: Date
+	},
+	place: {
+		type: String,
+		default: ''
+	},
+	duration: {
+		type: Number,
+		default: false
+	},
+	description: {
+		type: String,
+		default: ''
+	},
+	category: {
+		type: String,
+		default: ''
+	},
+	admission: {
+		type: Boolean,
+		default: false
+	},
+	capacity: {
+		type: Number,
+		default: 0
+	},
+	reservation: {
+		type: Boolean,
+		default: false
+	},
+	price: {
+		type: Number,
+		default: 0
+	},
+	tags : {
+		type: Array
+	}
 });
 
-module.exports = mongoose.model('Event', EventSchema)
+module.exports = mongoose.model('Event', EventSchema);

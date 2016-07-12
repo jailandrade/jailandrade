@@ -8,10 +8,16 @@ var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/sisne');
 
+// Here we can define the routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var events = require('./routes/events');
 
+// Here we can define the models
+var User = require('./models/User');
+var Event = require('./models/Event');
+
+// Initialize the app
 var app = express();
 
 // view engine setup
@@ -21,10 +27,10 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-	extended: false
+	extended: true
 }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

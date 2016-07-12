@@ -4,15 +4,43 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema({
 	id: ObjectId,
-	name: {type: String, required: true},
-	email: {type: String, required: true, unique: true},
-	bio: String,
-	username: { type: String},
-	notifications: Boolean,
-	isAdmin: { type: Boolean, default: false},
-	isPublisher: { type: Boolean, default: false},
-	created_at: {type: Date},
-	updated_at: {type: Date}
+	name: {
+		type: String,
+		required: true
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true
+	},
+	password: {
+		type: String
+	},
+	bio: {
+		type: String,
+		default: ''
+	},
+	username: {
+		type: String,
+		default: ''
+	},
+	notifications: [{email: false, in_app: false}],
+	isAdmin: {
+		type: Boolean,
+		default: false
+	},
+	isPublisher: {
+		type: Boolean,
+		default: false
+	},
+	created_at: {
+		type: Date,
+		default: Date.now
+	},
+	updated_at: {
+		type: Date,
+		default: Date.now
+	}
 });
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema);
