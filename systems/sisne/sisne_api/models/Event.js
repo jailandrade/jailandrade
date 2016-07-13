@@ -54,12 +54,19 @@ var EventSchema = new Schema({
 		type: Number,
 		default: 0
 	},
-	tags : {
+	tags: {
 		type: Array
 	},
+	published_by: [{
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	}],
 	geometry: {
-		coordinates: {type: [number], index: '2dsphere' } 
-	} 
+		coordinates: {
+			type: Array,
+			index: '2dsphere'
+		}
+	}
 });
 
 module.exports = mongoose.model('Event', EventSchema);

@@ -28,11 +28,11 @@ var UserSchema = new Schema({
 		email: false,
 		in_app: false
 	}],
-	isAdmin: {
+	is_admin: {
 		type: Boolean,
 		default: false
 	},
-	isPublisher: {
+	is_publisher: {
 		type: Boolean,
 		default: false
 	},
@@ -43,7 +43,11 @@ var UserSchema = new Schema({
 	updated_at: {
 		type: Date,
 		default: Date.now
-	}
+	},
+	events: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Event'
+	}]
 });
 
 module.exports = mongoose.model('User', UserSchema);
