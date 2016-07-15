@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var helmet = require('helmet');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 mongoose.connect('mongodb://localhost/sisne');
 
@@ -30,6 +32,18 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(require('express-session')({
+	secret: 'q~06M{|/c0Cik.?KGjD>;Zp2eD3 $})}|z$;6#k4`Qu-P&KI6jXUH/v=UsMXz,fZ1?/^g|eF8$#E+Pfxubnso+WQM3w+/}D',
+	resave: false,
+	saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', routes);
 app.use('/api/v1/users', users);

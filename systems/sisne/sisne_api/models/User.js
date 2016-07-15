@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
+	passportLocalMongoose = require('passport-local-mongoose');
 	ObjectId = Schema.ObjectId;
 
 var UserSchema = new Schema({
@@ -49,5 +50,7 @@ var UserSchema = new Schema({
 		ref: 'Event'
 	}]
 });
+
+UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', UserSchema);
