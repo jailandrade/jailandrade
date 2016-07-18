@@ -6,19 +6,23 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var helmet = require('helmet');
+var session = require('express-session');
+var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var setUpPassport = require('./setuppassport');
 
 mongoose.connect('mongodb://localhost/sisne');
+setUpPassport();
 
 // Here we can define the routes
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var users = require('./routes/users');
 var events = require('./routes/events');
 
 // Here we can define the models
-var User = require('./models/User');
-var Event = require('./models/Event');
+// var User = require('./models/User');
+// var Event = require('./models/Event');
 
 // Initialize the app
 var app = express();
@@ -31,25 +35,22 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('express-session')({
-	secret: 'q~06M{|/c0Cik.?KGjD>;Zp2eD3 $})}|z$;6#k4`Qu-P&KI6jXUH/v=UsMXz,fZ1?/^g|eF8$#E+Pfxubnso+WQM3w+/}D',
+app.use(session({
+	secret: 'q~06M{|/c0Cik.?KGjD>;Zp2eD34`Qu-P&KI6jXUH/v=UsMXz,fZ1?/^g|eF8$#E+Pfxubnso+WQM3w+/}D',
 	resave: false,
 	saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-app.use('/', routes);
+app.use('/api/v1/', index);
 app.use('/api/v1/users', users);
 app.use('/api/v1/events', events);
 
 app.use(helmet());
+app.use(flash());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

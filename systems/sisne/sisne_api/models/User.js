@@ -1,7 +1,9 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-	passportLocalMongoose = require('passport-local-mongoose');
-	ObjectId = Schema.ObjectId;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var	ObjectId = Schema.ObjectId;
+var bcrypt = require('bcrypt-nodejs');
+var SALT_FACTOR = 10;
+
 
 var UserSchema = new Schema({
 	id: ObjectId,
@@ -51,6 +53,30 @@ var UserSchema = new Schema({
 	}]
 });
 
-UserSchema.plugin(passportLocalMongoose);
+var noop = function(){};
+
+UserSchema.pre('save', function(done){
+	var user = this;
+
+	if (!user.isModified('password')){
+		return done();
+	}
+	bcrypt.genSalt(SALT_FACTOR, function(err, salt){
+		if (err) {return done(err);}
+
+		bcrypt.hash(user.password, salt, noop, function(err, hashedPassword){
+			if (err) {return done(err);}
+
+			user.password = hashedPassword;
+			done();
+		});
+	});
+});
+
+UserSchema.methods.checkPassword = function(guess, done){
+	bcrypt.compare(guess, this.password, function(err, isMatch){
+		done(err, isMatch);
+	});
+};
 
 module.exports = mongoose.model('User', UserSchema);
