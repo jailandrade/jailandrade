@@ -6,8 +6,6 @@ var router = express.Router();
 
 router.use(function(req, res, next){
 	res.locals.currentUser = req.user;
-	res.locals.errors = req.flash('error');
-	res.locals.infos = req.flash('info');
 	next();
 });
 
@@ -22,19 +20,22 @@ router.post('/login', passport.authenticate('login', {
 }));
 
 router.post('/signup', function(req, res, next){
+	var name = req.body.name;
 	var username = req.body.username;
 	var password = req.body.password;
+	var email = req.body.email;
 
 	User.findOne({username: username}, function(err, user){
 		if (err) {return next(err);}
 		if (user) {
-			req.flash('error', 'User already exists');
-			return res.redirect('/signup');
+			return res.status(200).send({message: 'Usuario existe'});
 		}
 
 		var newUser = new User({
+			name: name,
 			username: username,
-			password: password
+			password: password,
+			email: email
 		});
 		newUser.save(next);
 	});

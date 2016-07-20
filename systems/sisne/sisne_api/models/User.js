@@ -4,7 +4,6 @@ var	ObjectId = Schema.ObjectId;
 var bcrypt = require('bcrypt-nodejs');
 var SALT_FACTOR = 10;
 
-
 var UserSchema = new Schema({
 	id: ObjectId,
 	name: {
@@ -17,7 +16,8 @@ var UserSchema = new Schema({
 		unique: true
 	},
 	password: {
-		type: String
+		type: String,
+		required: true
 	},
 	bio: {
 		type: String,
