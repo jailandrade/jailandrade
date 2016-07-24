@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Geektlan
+    link(rel="stylesheet", href="/css/main.css")
+  body
+    .page
+      header.header
+        nav.nav
+          menu.menu
+            li
+              a(href="/") Geektlan
+            li
+              a(href="/editorial") Editorial
+            li
+              a(href="/tutoriales") Tutoriales
+            li
+              a(href="/eventos") Eventos
+            li
+              a(href="/noticias") Noticias
+            li
+              a(href="/podcast") Podcast
+      main.content
+        != yield
