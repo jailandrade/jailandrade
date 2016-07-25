@@ -45,9 +45,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/v1/', index);
-app.use('/api/v1/users', users);
-app.use('/api/v1/events', events);
+app.use('/v1/', index);
+app.use('/v1/users', users);
+app.use('/v1/events', events);
 
 app.use(helmet());
 app.use(flash());
