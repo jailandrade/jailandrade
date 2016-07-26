@@ -1,27 +1,34 @@
 doctype html
 html
-  head
-    meta(charset='utf-8')
-    title Geektlan
-    link(rel="stylesheet", href="/styles/vendors/normalize.css")
-    link(rel="stylesheet", href="/styles/vendors/skeleton.css")
-    link(rel="stylesheet", href="/styles/main.css")
-  body
-    .page
-      header.header
-        nav.nav
-          menu.menu
-            li
-              a(href="/") Geektlan
-            li
-              a(href="/editorial") Editorial
-            li
-              a(href="/tutoriales") Tutoriales
-            li
-              a(href="/eventos") Eventos
-            li
-              a(href="/noticias") Noticias
-            li
-              a(href="/podcast") Podcast
-      main.content
-        != yield
+	head
+		meta(charset='utf-8')
+		title Geektlan
+		link(rel="stylesheet", href="/styles/vendors/normalize.css")
+		link(rel="stylesheet", href="/styles/vendors/skeleton.css")
+		link(rel='stylesheet', href="/styles/vendors/font-awesome.min.css")
+		link(rel="stylesheet", href="/styles/main.css")
+	body
+		#page.home
+			header.header
+				nav.nav
+					menu.menu
+						li
+							i.fa.fa-home(aria-hidden="true")
+							a(href="/") Geektlan
+						li
+							i.fa.fa-pencil-square-o(aria-hidden="true")
+							a(href="/editorial") Editorial
+						li
+							i.fa.fa-code(aria-hidden="true")
+							a(href="/tutoriales") Tutoriales
+						li
+							i.fa.fa-calendar(aria-hidden="true")
+							a(href="/eventos") Eventos
+						li
+							i.fa.fa-newspaper-o(aria-hidden="true")
+							a(href="/noticias") Noticias
+						li
+							i.fa.fa-microphone(aria-hidden="true")
+							a(href="/podcast") Podcast
+			main.content
+				!= yield
