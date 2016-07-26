@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 var Event = require('./../models/Event');
 
+function ensureAuthenticated(req, res, next){
+	if (req.isAuthenticated()) {
+		next();
+	} else {
+		req.flash('info', 'You must be logged to see this page');
+		res.redirect('/login');
+	}
+}
+
 /* GET all the events. */
 router.get('/', function(req, res, next) {
 
@@ -16,7 +25,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* Post new event */
-router.post('/', function(req, res, next) {
+router.post('/', ensureAuthenticated, function(req, res, next) {
 	var event = new Event(req.body);
 	event.created_at = Date.now();
 
@@ -46,26 +55,36 @@ router.get('/:event_key', function(req, res, next) {
 	});
 });
 
-router.put('/:event_key', function(req, res, next) {
+router.put('/:event_key', ensureAuthenticated, function(req, res, next) {
 
-	var event_update = req.body;
-	event_update.updated_at = Date.now();
-	console.log(event_update);
+	var update = req.body;
+	update.updated_at = Date.now();
 
 	Event.findOneAndUpdate({
 		key: req.params.event_key
 	}, {
-		$set: {
-			event_update
-		}
+		$set: { update }
 	}, function(err, update) {
 		if (err) {
 			console.log(err);
 			res.send(err);
 		}
 
-		res.send(update);
+		res.status(200).send(update);
 	});
+});
+
+router.delete('/:event_key', ensureAuthenticated, function(req, res, next) {
+	Event.findOneAndRemove({
+		key: req.params.event_key
+	}, function(err, success){
+		if (err) { console.log(err); }
+		return status(200).send({message: 'Event deleted'});
+	});
+});
+
+router.get('/?s', function(req, res, next){
+	
 });
 
 module.exports = router;
